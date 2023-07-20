@@ -37,17 +37,177 @@ float findLargestFloat(const float* arr, int size) {
 void admix3();
 void admix4();
 void admix5();
+void makesim();
  int main(){
      int admixSelect;
-     cout << "\n Enter 3 For 3 way admixture, Enter 4 for 4 way admixture, Enter 5 for 5 way admixture: ";
+     cout << "\n Enter 1 to make Ghosts with Eurogenes K36, Enter 3 For 3 way admixture, Enter 4 for 4 way admixture, Enter 5 for 5 way admixture: ";
      cin >> admixSelect;
      switch(admixSelect){
+         case 1: makesim(); break;
       case 3: admix3(); break;
       case 4: admix4(); break;
       case 5: admix5(); break;
       default: cout << "Invalid. ";
      }
 
+ }
+ void makesim(){
+     string File; string OutputFile;
+     cout << "Enter Source File name: ";
+     cin >> File;
+     cout << "Enter Output File name: ";
+     cin >> OutputFile;
+     cin.ignore();
+      double K36[36];
+    std::cout << "Enter 36 comma-separated doubles with no population name for 1st population: ";
+    std::string input;
+    std::getline(std::cin, input);
+
+    std::stringstream ss(input);
+    std::string token;
+    int index = 0;
+    while (std::getline(ss, token, ',') && index < 36) {
+        std::stringstream(token) >> K36[index];
+        index++;
+    }
+
+    if (index != 36) {
+        std::cout << "Invalid input. Expected 36 comma-separated numbers." << std::endl; main();
+
+    }
+     double K362[36];
+    std::cout << "Enter 36 comma-separated doubles with no population name for 2nd population: ";
+    std::string input2;
+    std::getline(std::cin, input2);
+
+    std::stringstream ss2(input2);
+    std::string token2;
+    int index2 = 0;
+    while (std::getline(ss2, token2, ',') && index2 < 36) {
+        std::stringstream(token2) >> K362[index2];
+        index2++;
+    }
+
+    if (index2 != 36) {
+        std::cout << "Invalid input. Expected 36 comma-separated numbers." << std::endl; main();
+    }
+    double K363[36];
+    std::cout << "Enter 36 comma-separated doubles with no population name for 3rd population: ";
+    std::string input3;
+    std::getline(std::cin, input3);
+
+    std::stringstream ss3(input3);
+    std::string token3;
+    int index3 = 0;
+    while (std::getline(ss3, token3, ',') && index3 < 36) {
+        std::stringstream(token3) >> K363[index3];
+        index3++;
+    }
+
+    if (index3 != 36) {
+        std::cout << "Invalid input. Expected 36 comma-separated numbers." << std::endl; main();
+
+    }
+    double K364[36];
+    std::cout << "Enter 36 comma-separated doubles with no population name for 4th population: ";
+    std::string input4;
+    std::getline(std::cin, input4);
+
+    std::stringstream ss4(input4);
+    std::string token4;
+    int index4 = 0;
+    while (std::getline(ss4, token4, ',') && index4 < 36) {
+        std::stringstream(token4) >> K364[index4];
+        index4++;
+    }
+
+    if (index4 != 36) {
+        std::cout << "Invalid input. Expected 36 comma-separated numbers." << std::endl; main();
+
+    }
+    double K365[36];
+    std::cout << "Enter 36 comma-separated doubles with no population name for 5th population: ";
+    std::string input5;
+    std::getline(std::cin, input5);
+
+    std::stringstream ss5(input5);
+    std::string token5;
+    int index5 = 0;
+    while (std::getline(ss5, token5, ',') && index5 < 36) {
+        std::stringstream(token5) >> K365[index5];
+        index5++;
+    }
+
+    if (index5 != 36) {
+        std::cout << "Invalid input. Expected 36 comma-separated numbers." << std::endl; main();
+
+    }
+     double K366[36];
+    std::cout << "Enter 36 comma-separated doubles with no population name for 6th population: ";
+    std::string input6;
+    std::getline(std::cin, input6);
+
+    std::stringstream ss6(input6);
+    std::string token6;
+    int index6 = 0;
+    while (std::getline(ss6, token6, ',') && index6 < 36) {
+        std::stringstream(token6) >> K366[index6];
+        index6++;
+    }
+
+    if (index6 != 36) {
+        std::cout << "Invalid input. Expected 36 comma-separated numbers." << std::endl;
+        main();
+
+    }
+    for(int i = 0; i<36; i++){
+     cout << K36[i] << " " << K362[i] << " " << K363[i] << " " << K364[i] << " " << K365[i] << " " << K366[i] << "\n \n";
+    }
+     ifstream file(File.c_str());
+    if (!file) {
+        cout << "Unable to open file" << endl;
+
+        main();
+    }
+      std::ofstream outputFile(OutputFile.c_str()); // Create a file stream for writing
+
+    if (!outputFile) {
+        std::cerr << "Error creating file." << std::endl;
+        main();
+    }
+     string line;
+    while (getline(file, line)) {
+       std::stringstream ss(line); float dataArray[36]; int columnCount = 0;
+       while (ss >> dataArray[columnCount] && columnCount < 36) {
+            columnCount++;
+        }
+        outputFile << (K36[0]*dataArray[0]+K36[1]*dataArray[1]+K36[2]*dataArray[2]+K36[3]*dataArray[3]+K36[4]*dataArray[4]+K36[5]*dataArray[5]+K36[6]*dataArray[6]+K36[7]*dataArray[7]+K36[8]*dataArray[8]+K36[9]*dataArray[9]+
+        K36[10]*dataArray[10]+K36[11]*dataArray[11]+K36[12]*dataArray[12]+K36[13]*dataArray[13]+K36[14]*dataArray[14]+K36[15]*dataArray[15]+K36[16]*dataArray[16]+K36[17]*dataArray[17]+K36[18]*dataArray[18]+K36[19]*dataArray[19]+K36[20]*dataArray[20]+
+        K36[21]*dataArray[21]+K36[22]*dataArray[22]+K36[23]*dataArray[23]+K36[24]*dataArray[24]+K36[25]*dataArray[25]+K36[26]*dataArray[26]+K36[27]*dataArray[27]+K36[28]*dataArray[28]+K36[29]*dataArray[29]+K36[30]*dataArray[30]+K36[31]*dataArray[31]+
+        K36[32]*dataArray[32]+K36[33]*dataArray[33]+K36[34]*dataArray[34]+K36[35]*dataArray[35]+K36[36]*dataArray[36])/100 << "  " <<
+        (K362[0]*dataArray[0]+K362[1]*dataArray[1]+K362[2]*dataArray[2]+K362[3]*dataArray[3]+K362[4]*dataArray[4]+K362[5]*dataArray[5]+K362[6]*dataArray[6]+K362[7]*dataArray[7]+K362[8]*dataArray[8]+K362[9]*dataArray[9]+
+        K362[10]*dataArray[10]+K362[11]*dataArray[11]+K362[12]*dataArray[12]+K362[13]*dataArray[13]+K362[14]*dataArray[14]+K362[15]*dataArray[15]+K362[16]*dataArray[16]+K362[17]*dataArray[17]+K362[18]*dataArray[18]+K362[19]*dataArray[19]+K362[20]*dataArray[20]+
+        K362[21]*dataArray[21]+K362[22]*dataArray[22]+K362[23]*dataArray[23]+K362[24]*dataArray[24]+K362[25]*dataArray[25]+K362[26]*dataArray[26]+K362[27]*dataArray[27]+K362[28]*dataArray[28]+K362[29]*dataArray[29]+K362[30]*dataArray[30]+K362[31]*dataArray[31]+
+        K362[32]*dataArray[32]+K362[33]*dataArray[33]+K362[34]*dataArray[34]+K362[35]*dataArray[35]+K362[36]*dataArray[36])/100 << "  " <<
+        (K363[0]*dataArray[0]+K363[1]*dataArray[1]+K363[2]*dataArray[2]+K363[3]*dataArray[3]+K363[4]*dataArray[4]+K363[5]*dataArray[5]+K363[6]*dataArray[6]+K363[7]*dataArray[7]+K363[8]*dataArray[8]+K363[9]*dataArray[9]+
+        K363[10]*dataArray[10]+K363[11]*dataArray[11]+K363[12]*dataArray[12]+K363[13]*dataArray[13]+K363[14]*dataArray[14]+K363[15]*dataArray[15]+K363[16]*dataArray[16]+K363[17]*dataArray[17]+K363[18]*dataArray[18]+K363[19]*dataArray[19]+K363[20]*dataArray[20]+
+        K363[21]*dataArray[21]+K363[22]*dataArray[22]+K363[23]*dataArray[23]+K363[24]*dataArray[24]+K363[25]*dataArray[25]+K363[26]*dataArray[26]+K363[27]*dataArray[27]+K363[28]*dataArray[28]+K363[29]*dataArray[29]+K363[30]*dataArray[30]+K363[31]*dataArray[31]+
+        K363[32]*dataArray[32]+K363[33]*dataArray[33]+K363[34]*dataArray[34]+K363[35]*dataArray[35]+K363[36]*dataArray[36])/100 << "  " <<
+        (K364[0]*dataArray[0]+K364[1]*dataArray[1]+K364[2]*dataArray[2]+K364[3]*dataArray[3]+K364[4]*dataArray[4]+K364[5]*dataArray[5]+K364[6]*dataArray[6]+K364[7]*dataArray[7]+K364[8]*dataArray[8]+K364[9]*dataArray[9]+
+        K364[10]*dataArray[10]+K364[11]*dataArray[11]+K364[12]*dataArray[12]+K364[13]*dataArray[13]+K364[14]*dataArray[14]+K364[15]*dataArray[15]+K364[16]*dataArray[16]+K364[17]*dataArray[17]+K364[18]*dataArray[18]+K364[19]*dataArray[19]+K364[20]*dataArray[20]+
+        K364[21]*dataArray[21]+K364[22]*dataArray[22]+K364[23]*dataArray[23]+K364[24]*dataArray[24]+K364[25]*dataArray[25]+K364[26]*dataArray[26]+K364[27]*dataArray[27]+K364[28]*dataArray[28]+K364[29]*dataArray[29]+K364[30]*dataArray[30]+K364[31]*dataArray[31]+
+        K364[32]*dataArray[32]+K364[33]*dataArray[33]+K364[34]*dataArray[34]+K364[35]*dataArray[35]+K364[36]*dataArray[36])/100 << "  " <<
+        (K365[0]*dataArray[0]+K365[1]*dataArray[1]+K365[2]*dataArray[2]+K365[3]*dataArray[3]+K365[4]*dataArray[4]+K365[5]*dataArray[5]+K365[6]*dataArray[6]+K365[7]*dataArray[7]+K365[8]*dataArray[8]+K365[9]*dataArray[9]+
+        K365[10]*dataArray[10]+K365[11]*dataArray[11]+K365[12]*dataArray[12]+K365[13]*dataArray[13]+K365[14]*dataArray[14]+K365[15]*dataArray[15]+K365[16]*dataArray[16]+K365[17]*dataArray[17]+K365[18]*dataArray[18]+K365[19]*dataArray[19]+K365[20]*dataArray[20]+
+        K365[21]*dataArray[21]+K365[22]*dataArray[22]+K365[23]*dataArray[23]+K365[24]*dataArray[24]+K365[25]*dataArray[25]+K365[26]*dataArray[26]+K365[27]*dataArray[27]+K365[28]*dataArray[28]+K365[29]*dataArray[29]+K365[30]*dataArray[30]+K365[31]*dataArray[31]+
+        K365[32]*dataArray[32]+K365[33]*dataArray[33]+K365[34]*dataArray[34]+K365[35]*dataArray[35]+K365[36]*dataArray[36])/100 << "  " <<
+        (K366[0]*dataArray[0]+K366[1]*dataArray[1]+K366[2]*dataArray[2]+K366[3]*dataArray[3]+K366[4]*dataArray[4]+K366[5]*dataArray[5]+K366[6]*dataArray[6]+K366[7]*dataArray[7]+K366[8]*dataArray[8]+K366[9]*dataArray[9]+
+        K366[10]*dataArray[10]+K366[11]*dataArray[11]+K366[12]*dataArray[12]+K366[13]*dataArray[13]+K366[14]*dataArray[14]+K366[15]*dataArray[15]+K366[16]*dataArray[16]+K366[17]*dataArray[17]+K366[18]*dataArray[18]+K366[19]*dataArray[19]+K366[20]*dataArray[20]+
+        K366[21]*dataArray[21]+K366[22]*dataArray[22]+K366[23]*dataArray[23]+K366[24]*dataArray[24]+K366[25]*dataArray[25]+K366[26]*dataArray[26]+K366[27]*dataArray[27]+K366[28]*dataArray[28]+K366[29]*dataArray[29]+K366[30]*dataArray[30]+K366[31]*dataArray[31]+
+        K366[32]*dataArray[32]+K366[33]*dataArray[33]+K366[34]*dataArray[34]+K366[35]*dataArray[35]+K366[36]*dataArray[36])/100 << std::endl;
+    }
+
+ main();
  }
  void admix5(){
     string File;
